@@ -1,0 +1,76 @@
+---
+import '../styles/global.css';
+import ThemeToggle from '../components/ThemeToggle';
+
+import { ClientRouter } from 'astro:transitions';
+
+import { SEO } from "astro-seo";
+
+interface Props {
+	title: string;
+	description?: string;
+	image?: string;
+	fullWidth?: boolean;
+}
+
+const { title, description = "Nikita's blog", image, fullWidth = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/space-invader-icon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<SEO
+			title={title}
+			description={description}
+			openGraph={{
+				basic: {
+					title: title,
+					type: "article",
+					image: image || "https://nik1t7n.work/og-image.png", // Fallback image
+				}
+			}}
+			twitter={{
+				creator: "@nik1t7n"
+			}}
+			extend={{
+				// linking to default favicon
+				link: [{ rel: "icon", href: "/space-invader-icon.svg" }],
+				// adding other meta tags
+				meta: [
+					{
+						name: "twitter:image",
+						content: image || "https://nik1t7n.work/og-image.png",
+					},
+					{ name: "twitter:title", content: title },
+					{ name: "twitter:description", content: description },
+				],
+			}}
+		/>
+		<ClientRouter />
+		<script is:inline>
+			// Immediate theme application to prevent flash
+			const theme = localStorage.getItem('theme') || 'dark';
+			document.documentElement.classList.toggle('dark', theme === 'dark');
+		</script>
+	</head>
+	<body class="min-h-screen flex flex-col bg-white dark:bg-background-dark text-neutral-900 dark:text-neutral-100 transition-colors duration-300 font-mono">
+		<ThemeToggle client:load /> 
+		
+
+		
+		<main class={`relative z-10 flex-1 ${fullWidth ? 'w-full' : 'max-w-4xl mx-auto px-6 py-10'}`}>
+			<slot />
+		</main>
+
+		<footer class="relative z-10 border-t border-neutral-200 dark:border-neutral-800 py-8 mt-auto">
+			<div class="max-w-4xl mx-auto px-6 text-center text-sm text-neutral-600 dark:text-neutral-400">
+				<p>© 2025 Nikita Nosov</p>
+				<p class="mt-2">«Agility is the only sustainable advantage in an era of constant reinvention.» – Jeff Bezos</p>
+			</div>
+		</footer>
+	</body>
+</html>
