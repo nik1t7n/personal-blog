@@ -10,7 +10,7 @@ const { title, description, pubDate, author, image, headings = [] } = Astro.prop
 ---
 
 <BaseLayout title={title} description={description} image={image?.url} fullWidth={true}>
-	<div class="flex gap-8 max-w-[88vw] mx-auto px-8 py-12">
+	<div class="flex gap-8 w-full lg:max-w-[88vw] ml-0 lg:mx-auto pl-4 pr-2 lg:px-8 py-12">
 		<!-- Sidebar with Table of Contents (Desktop) -->
 		<aside class="hidden lg:block w-64 flex-shrink-0">
 			<div class="sticky top-12 mt-17">
