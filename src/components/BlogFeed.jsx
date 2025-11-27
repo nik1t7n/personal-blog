@@ -76,8 +76,8 @@ const BlogFeed = ({ posts }) => {
                         <button
                             onClick={() => setViewMode('grid')}
                             className={`p-2 rounded-lg transition-all ${viewMode === 'grid'
-                                    ? 'bg-neutral-100 dark:bg-neutral-700 text-purple-600 dark:text-purple-400 shadow-sm'
-                                    : 'text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300'
+                                ? 'bg-neutral-100 dark:bg-neutral-700 text-purple-600 dark:text-purple-400 shadow-sm'
+                                : 'text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300'
                                 }`}
                         >
                             <Grid className="w-4 h-4" />
@@ -85,8 +85,8 @@ const BlogFeed = ({ posts }) => {
                         <button
                             onClick={() => setViewMode('list')}
                             className={`p-2 rounded-lg transition-all ${viewMode === 'list'
-                                    ? 'bg-neutral-100 dark:bg-neutral-700 text-purple-600 dark:text-purple-400 shadow-sm'
-                                    : 'text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300'
+                                ? 'bg-neutral-100 dark:bg-neutral-700 text-purple-600 dark:text-purple-400 shadow-sm'
+                                : 'text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300'
                                 }`}
                         >
                             <List className="w-4 h-4" />
@@ -130,13 +130,13 @@ const BlogFeed = ({ posts }) => {
                                             })}
                                         </time>
                                     </div>
-                                    {post.data.tags && (
+                                    {post.data.tags && post.data.tags.length > 0 && (
                                         <>
                                             <span>•</span>
                                             <div className="flex items-center gap-1">
                                                 <Tag className="w-3 h-3" />
                                                 <span className="uppercase tracking-wider">
-                                                    {post.data.tags[0]}
+                                                    {post.data.tags.join(', ')}
                                                 </span>
                                             </div>
                                         </>

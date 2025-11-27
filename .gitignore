@@ -23,6 +23,6 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# markdown files (except README)
-*.md
+# markdown files in root only (except README)
+/*.md
 !README.md
