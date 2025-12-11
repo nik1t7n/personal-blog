@@ -84,7 +84,7 @@ When you can:
 
 ## Vibe Planning vs Vibe Coding
 
-![The difference between vibe planning and vibe coding](/vibe-coding-vs-vibe-planning.jpg)
+![The difference between vibe planning and vibe coding](/vc-vs-vp.jpg)
 <p style="text-align: center; color: #666; font-size: 0.8em; margin-top: -0.5em; font-style: italic;">There's a crucial difference between these two approaches</p>
 
 Here's my takeaway for developers: **you still need fundamental knowledge** about your product, technology, and overall computer science and cybersecurity to avoid compromising your security.
