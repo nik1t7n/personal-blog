@@ -30,23 +30,25 @@ const { title, description = "Nikita's blog", image, fullWidth = false } = Astro
 				basic: {
 					title: title,
 					type: "article",
-					image: image || "https://nik1t7n.work/og-image.png", // Fallback image
+					image: image || "https://blog.nik1t7n.work/og-image.png",
+					url: Astro.url.href,
+				},
+				optional: {
+					description: description,
+					siteName: "Nikita's Blog",
 				}
 			}}
 			twitter={{
-				creator: "@nik1t7n"
+				card: "summary_large_image",
+				creator: "@nik1t7n",
+				title: title,
+				description: description,
+				image: image || "https://blog.nik1t7n.work/og-image.png",
 			}}
 			extend={{
-				// linking to default favicon
 				link: [{ rel: "icon", href: "/space-invader-icon.svg" }],
-				// adding other meta tags
 				meta: [
-					{
-						name: "twitter:image",
-						content: image || "https://nik1t7n.work/og-image.png",
-					},
-					{ name: "twitter:title", content: title },
-					{ name: "twitter:description", content: description },
+					{ property: "og:locale", content: "en_US" },
 				],
 			}}
 		/>
